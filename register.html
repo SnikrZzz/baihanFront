@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ecomerce</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="container mt-4 ">
+    <div class="row">
+      <div class="col-lg-6 mt-md-5 pt-md-5">
+        <h1 class="fs-1">Registrate</h1>
+        <h2 class="fw-normal text-justifys"><span class="text-theme-primary fw-bold ">¡Bienvenido!</span> Para poder realizar compras en nuestro sitio, por favor complete este breve formulario de registro. Al registrarse, podrá guardar su información de envío y realizar un seguimiento de sus pedidos. <span class="text-theme-primary fw-bold">¡Gracias por elegirnos para comprar artesanías únicas y hechas a mano! </span></h2>
+        <p class="text-center pt-4">¿Ya tienes una cuenta? <a href="./login.html" class="text-decoration-none fw-bold"><span class="text-theme-primary">Inicia sesión</span></a></p>
+      </div>
+      <div class="col-lg-6 ">
+        <div class="card p-5 pt-4 pb-4">
+        <form>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3 ">
+                <input type="text" class="form-control" id="cedula" placeholder="Cedula">
+                <label for="cedula">Cedula *</label>
+                <p class="error-message">
+                  Tiene que ser un número de 8 o 10 dígitos
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                <label for="nombre">Nombre *</label>
+                <p class="error-message">
+                  Por favor no use caracteres especiales
+                </p>
+              </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="Correo">
+                <label for="email">Correo *</label>
+                <p class="error-message">
+                  Por favor ingrese un correo válido  correo@ejemplo.com
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email1" placeholder="Correo">
+                <label for="email1">Confirmar correo</label>
+                <p class="error-message">
+                    Los correos no coinciden
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password" placeholder="Contaseña">
+                <label for="password">Contraseña</label>
+                <p class="error-message">
+                  Debe ser de mínimo 8 caracteres e incluir minúsculas, mayúsculas, números y caracteres especiales
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password1" placeholder="Contaseña">
+                <label for="password">Confirmar contraseña</label>
+                <p class="error-message">
+                  Las contraseñas no coinciden
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-12">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="telefono" placeholder="Teléfono">
+                <label for="telefono">Teléfono *</label>
+                <p class="error-message">
+                  Debe ser de 10 dígitos
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr class="bg-theme-primary border-2 border-top boder-theme-secondary">
+          <p class="text-secondary">Dirección *</p>
+          <div class="row">
+            <div class="col-12 col-md-6">
+             <div class="form-floating mb-3">
+                  <select class="form-select" id="departamento" aria-label="Departamento">
+                    <option selected disabled>---</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <label for="departamento">Departamento</label>
+                  <p class="error-message">
+                    Debe elegir una opción
+                  </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+             <div class="form-floating mb-3">
+                  <select class="form-select" id="ciudad" aria-label="Ciudad">
+                    <option selected disabled>---</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <label for="ciudad">Ciudad</label>
+                  <p class="error-message">
+                    Debe elegir una opción
+                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="form-floating mb-3">
+                  <select class="form-select" id="tipo_calle" aria-label="Tipo de calle">
+                    <option selected disabled>---</option>
+                    <option value="">Avenida</option>
+                    <option value="">Avenida Calle</option>
+                    <option value="">Avenida Carrera</option>
+                    <option value="">Calle</option>
+                    <option value="">Carrera</option>
+                    <option value="">Circular</option>
+                    <option value="">Circunvalar</option>
+                    <option value="">Diagonal</option>
+                    <option value="">Manzana</option>
+                    <option value="">Transversal</option>
+                    <option value="">Transversal</option>
+                    <option value="">Vía</option>
+                  </select>
+                  <label for="tipo_calle">Tipo de calle</label>
+                  <p class="error-message">
+                    Debe elegir una opción
+                  </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="via" placeholder="Vía">
+                <label for="via">Vía</label>
+                <p class="error-message">
+                  Deben ser sólo números y letras, sin caracteres especiales
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="numero" placeholder="Número">
+                <label for="numero">#</label>
+                <p class="error-message">
+                  Deben ser sólo números y letras, sin caracteres especiales
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+                <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="casa" placeholder="-">
+                <label for="casa">-</label>
+                <p class="error-message">
+                  Deben ser sólo números y letras, sin caracteres especiales
+                </p>
+              </div>
+            </div>                        
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-12">
+              <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Referencias adicionales de esta dirección" id="refadd" style="height: 80px"></textarea>
+                <label for="refadd">Referencias adicionales de esta dirección</label>
+              </div>
+            </div>
+          </div>
+          <hr class="bg-theme-primary border-2 border-top boder-theme-secondary">
+           <div class="mb-3 form-check text-start ">
+                <input type="checkbox" class="form-check-input" id="acceptCheck">
+                <label class="form-check-label" for="acceptCheck">Acepto los términos y condiciones</label>
+                <p class="error-message">
+                  Por favor acepte los términos y condiciones
+                </p>
+              </div>
+            <a class="btn btn-theme-primary disabled" id="regBtn">Crear cuenta</a>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./js/register.js"></script>
+</body>
+</html>

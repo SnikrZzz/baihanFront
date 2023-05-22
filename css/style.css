@@ -1,0 +1,78 @@
+:root {
+  --theme-primary-color : #e35e01;
+  --theme-secondary-color: #ff9001;
+  --theme-info-color: #37c8ac;
+  --theme-warning-color: #ffab00;
+  --theme-danger-color: #cc5c3c;
+  --theme-light-color: #f2f2f0;
+  --theme-dark-color: #474139;
+}
+
+*::selection {
+  background: var(--theme-secondary-color);
+  color: white;
+}
+
+.bg-theme-secondary{
+  background-color: var(--theme-secondary-color);
+}
+
+
+.bg-theme-primary{
+  background-color: var(--theme-primary-color);
+}
+
+.bg-theme-dark{
+  background-color: var(--theme-dark-color);
+}
+
+.text-theme-primary {
+  color: var(--theme-primary-color);
+}
+
+.text-theme-secondary {
+  color: var(--theme-secondary-color);
+}
+
+.boder-theme-secondary{
+  border-color: var(--theme-secondary-color)!important;
+}
+
+.border-theme-warning{
+   border-color: var(--theme-warning-color)!important;
+}
+
+.btn-theme-primary{
+  color: #fff;
+  background-color: var(--theme-primary-color);
+  border-color: var(--theme-primary-color);
+      
+}
+
+.btn-theme-info{
+  color: #fff;
+  background-color: var(--theme-info-color);
+  border-color: var(--theme-info-color);
+      
+}
+
+.btn-theme-secondary{
+  color: #fff;
+  background-color: var(--theme-secondary-color);
+  border-color: var(--theme-secondary-color);
+      
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+.error-message{
+  display: none;
+  color: red;
+  font-size: smaller;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
