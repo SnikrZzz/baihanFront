@@ -13,7 +13,7 @@ getData("http://127.0.0.1:8080/api/products").then(() => {
     producto.innerHTML =
       '<div class="row">' +
       '<div class="col-md-3">' +
-      '<a href="order.html" class="text-dark" style="text-decoration: none">' +
+      '<a href="product.html" class="text-dark" style="text-decoration: none">' +
       '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
       "</div>" +
       '<div class="col-md-8" style="margin-left: 12px">' +
@@ -33,7 +33,7 @@ getData("http://127.0.0.1:8080/api/products").then(() => {
       "</div>" +
       '<div class="row">' +
       '<div class="col-6">' +
-      '<a href="order.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
+      '<a href="product.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
       '<p style="font-size: 25px"> $ ' +
       element.price +
       " COP </p>" +
@@ -83,7 +83,7 @@ document.getElementById("search").addEventListener("click", function (event) {
           producto.innerHTML =
             '<div class="row">' +
             '<div class="col-md-3">' +
-            '<a href="order.html" class="text-dark" style="text-decoration: none">' +
+            '<a href="product.html" class="text-dark" style="text-decoration: none">' +
             '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
             "</div>" +
             '<div class="col-md-8" style="margin-left: 12px">' +
@@ -103,7 +103,7 @@ document.getElementById("search").addEventListener("click", function (event) {
             "</div>" +
             '<div class="row">' +
             '<div class="col-6">' +
-            '<a href="order.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
+            '<a href="product.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
             '<p style="font-size: 25px"> $ ' +
             element.price +
             " COP </p>" +
@@ -153,7 +153,7 @@ document.getElementById("search").addEventListener("click", function (event) {
         producto.innerHTML =
           '<div class="row">' +
           '<div class="col-md-3">' +
-          '<a href="order.html" class="text-dark" style="text-decoration: none">' +
+          '<a href="product.html" class="text-dark" style="text-decoration: none">' +
           '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
           "</div>" +
           '<div class="col-md-8" style="margin-left: 12px">' +
@@ -173,7 +173,7 @@ document.getElementById("search").addEventListener("click", function (event) {
           "</div>" +
           '<div class="row">' +
           '<div class="col-6">' +
-          '<a href="order.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
+          '<a href="product.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
           '<p style="font-size: 25px"> $ ' +
           data.price +
           " COP </p>" +
