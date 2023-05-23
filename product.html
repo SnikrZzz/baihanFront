@@ -98,16 +98,16 @@
       </div>
       <div class="col-lg-4 align-items-center" style="margin-top: 13px; margin-bottom: -91px">
         <div class="row" style="padding: 20px">
-          <h1 class="mb-3">Nombre</h1>
+          <h1 class="mb-3" id="nombre">Nombre</h1>
           <div class="row mb-3">
             <div class="col">
-              <h4>Marca:</h4>
+              <h4 id="marca">Marca:</h4>
             </div>
             <div class="col">
-              <h4>...</h4>
+              <h4 id="precio">...</h4>
             </div>
           </div>
-          <p>Descripción</p>
+          <p id="descripcion">Descripción</p>
           <div class="row mb-3 justify-content-center">
             <div class="col-3">
               <button class="btn btn-dark">Comprar</button>
@@ -119,6 +119,16 @@
         </div>
       </div>
     </div>
+    <div class="row my-2">
+      <div class="col-lg-8 mx-auto">
+        <div class="form-floating mb-3 validate">
+          <input type="text" name="comentario" id="comentario" class="form-control " placeholder="Comentario">
+          <label for="apellidos">Comentario</label>
+      </div>
+        <button class="btn-dark btn" id="btncomentario">Texto boton</button>
+      </div>
+    </div>
+    <div id="comentarios" class="row"></div>
     <!--FOOTER-->
     <footer class="d-flex flex-column h-100 bg-dark" style="margin-top: 147px">
       <div class="row">
@@ -167,5 +177,6 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/product.js"></script>
   </body>
 </html>
