@@ -293,7 +293,7 @@ submitButton.onclick = () => {
         "correo": document.getElementById("email").value,
         "password": document.getElementById("password").value,
         "telefono": document.getElementById("telefono").value,
-        "direccion": document.getElementById("direccion").value,
+        "direccion": "",
         "descripcion": document.getElementById("refadd").value
     }
 
@@ -307,7 +307,8 @@ submitButton.onclick = () => {
         if (response.ok) {
             // Procesar la respuesta de la API
             response.json().then(function (data) {
-                //location.assign("./home.html")
+                setCookie("userBaihan", data.cedula, 7);
+                location.assign("./home.html")
                 console.log(data)
                 return true;
             });
@@ -331,3 +332,9 @@ function mostrarError(input, accion) {
     }
 }
 
+function setCookie(nombre, valor, expiracion) {
+    var fechaExpiracion = new Date();
+    fechaExpiracion.setTime(fechaExpiracion.getTime() + expiracion * 24 * 60 * 60 * 1000);
+    var expira = "expires=" + fechaExpiracion.toUTCString();
+    document.cookie = nombre + "=" + valor + ";" + expira + ";path=/";
+}
