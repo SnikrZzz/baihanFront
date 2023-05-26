@@ -83,7 +83,7 @@ document.getElementById("search").addEventListener("click", function (event) {
           producto.innerHTML =
             '<div class="row">' +
             '<div class="col-md-3">' +
-            '<a href="product.html" class="text-dark" style="text-decoration: none">' +
+            '<a href="product.html?id=' + element.eanCode + '"class="text-dark" style="text-decoration: none">' +
             '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
             "</div>" +
             '<div class="col-md-8" style="margin-left: 12px">' +
@@ -153,7 +153,7 @@ document.getElementById("search").addEventListener("click", function (event) {
         producto.innerHTML =
           '<div class="row">' +
           '<div class="col-md-3">' +
-          '<a href="product.html" class="text-dark" style="text-decoration: none">' +
+          '<a href="product.html?id=' + data.eanCode + '"class="text-dark" style="text-decoration: none">' +
           '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
           "</div>" +
           '<div class="col-md-8" style="margin-left: 12px">' +
