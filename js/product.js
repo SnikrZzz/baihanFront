@@ -4,7 +4,7 @@ var id = urlParams.get('id');
 console.log(id)
 
 
-fetch(`http://127.0.0.1:8080/api/products/${id}`).then(response => {
+fetch(`http://3.128.182.247/api/products/${id}`).then(response => {
       return response.json()
 }).then(product => {
       document.getElementById("nombre").textContent = product.name
@@ -15,7 +15,7 @@ fetch(`http://127.0.0.1:8080/api/products/${id}`).then(response => {
 
 function cargarcomentarios() {
       document.getElementById("comentarios").innerHTML = ""
-      fetch(`http://127.0.0.1:8080/api/comment/Byproduct/${id}`).then(response => {
+      fetch(`http://3.128.182.247/api/comment/Byproduct/${id}`).then(response => {
             return response.json()
       }).then(Comments => {
             Comments.forEach(Comment => {
@@ -41,7 +41,7 @@ btncomentario.addEventListener("click", (e) => {
             "date": ""
       }
 
-      fetch("http://127.0.0.1:8080/api/comment/" + id, {
+      fetch("http://3.128.182.247/api/comment/" + id, {
             method: 'POST',
             headers: {
                   'Content-Type': 'application/json'
