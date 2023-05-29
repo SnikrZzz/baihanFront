@@ -120,7 +120,7 @@ button.addEventListener("click", event => {
         "price" : price
     }
 
-    sendData("http://127.0.0.1:8080/api/products/save", product)
+    sendData("http://3.128.182.247/api/products/save", product)
 
     window.location.href = "home.html";
 })

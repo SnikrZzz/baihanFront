@@ -184,7 +184,7 @@ submitButton.onclick = () => {
         "descripcion": document.getElementById("refadd").value
     }
 
-    fetch("http://127.0.0.1:8080/api/customers/savecustomer", {
+    fetch("http://3.128.182.247/api/customers/savecustomer", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -1,5 +1,5 @@
 //DISPLAYING PRODUCTS
-getData("http://127.0.0.1:8080/api/products").then(() => {
+getData("http://3.128.182.247/api/products").then(() => {
   result.forEach((element) => {
     const producto = document.createElement("div");
     producto.classList.add(
@@ -67,7 +67,7 @@ document.getElementById("search").addEventListener("click", function (event) {
   if (searchProduct == "") {
     //DISPLAYING PRODUCTS
     document.getElementById("catalogo").innerHTML = ""
-    getData("http://127.0.0.1:8080/api/products").then(() => {
+    getData("http://3.128.182.247/api/products").then(() => {
       result.forEach((element) => {
         const producto = document.createElement("div");
         producto.classList.add(
@@ -119,7 +119,7 @@ document.getElementById("search").addEventListener("click", function (event) {
     });
   } else {
     getData(
-      "http://127.0.0.1:8080/api/products/byString/" + searchProduct
+      "http://3.128.182.247/api/products/byString/" + searchProduct
     ).then(() => {
       document.getElementById("catalogo").innerHTML = "";
       result.forEach((element) => {
