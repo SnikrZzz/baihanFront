@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(valores);
 var cedula = getCookie('userBaihan');
 console.log(cedula);
 
-fetch(`http://127.0.0.1:8080/api/customers/${cedula}`)
+fetch(`http://3.128.182.247/api/customers/${cedula}`)
     .then(response => response.json())
     .then(customer => {
         document.getElementById("cedula").textContent = customer.cedula;
