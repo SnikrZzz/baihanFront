@@ -53,77 +53,61 @@
     </div>
   </nav>
   <!--CONTENT-->
-  <h class="d-flex fs-1 fw-bold justify-content-center mt-5">Configuración de perfil</h>
+  <h class="d-flex fs-1 fw-bold justify-content-center mt-4">Configuración de perfil</h>
   <div class="row mt-1 justify-content-center">
     <div class="col-lg-3 d-flex justify-content-center align-items-center">
       <div class="row text-center">
         <i class="bi bi-person-lines-fill" style="font-size: 220px"></i>
       </div>
     </div>
-    <div class="col-lg-4 d-flex align-items-center" style="margin-top: 13px; margin-bottom: -91px">
+    <div class="col-lg-4 d-flex align-items-center" style="margin-top: 13px">
       <div class="row" style="padding: 20px">
         <div class="form-floating mb-3">
-          <input type="text" id="cedula" class="form-control" placeholder="cedula" />
-          <label for="cedula" style="padding-left: 25px">Cedula</label>
+          <h4>Cédula</h4>
+          <p id="cedula" style="margin-bottom: -5px;"></p>
         </div>
         <div class="form-floating mb-3 text-center">
           <input type="text" id="nombre" class="form-control" placeholder="Nombre" />
           <label for="nombre" style="padding-left: 25px">Nombre</label>
         </div>
-        <div id="direccion" class="row">
-          <p class="fs-5" style="padding-left: 15px">Dirección</p>
-          <div class="form-floating mb-3 col-5">
-            <select class="form-select" id="tipo_calle" aria-label="Tipo de calle">
-              <option selected disabled>---</option>
-              <option value="">Avenida</option>
-              <option value="">Avenida Calle</option>
-              <option value="">Avenida Carrera</option>
-              <option value="">Calle</option>
-              <option value="">Carrera</option>
-              <option value="">Circular</option>
-              <option value="">Circunvalar</option>
-              <option value="">Diagonal</option>
-              <option value="">Manzana</option>
-              <option value="">Transversal</option>
-              <option value="">Transversal</option>
-              <option value="">Vía</option>
-            </select>
-            <label for="tipo_calle" style="padding-left: 25px">Tipo de calle</label>
-          </div>
-          <div class="form-floating mb-3 col-3">
-            <input type="text" class="form-control" id="via" placeholder="Vía" />
-            <label for="via" style="padding-left: 25px">Vía</label>
-          </div>
-          <div class="form-floating mb-3 col-2">
-            <input type="text" class="form-control" id="numero" placeholder="Número" />
-            <label for="numero" style="padding-left: 25px">#</label>
-          </div>
-          <div class="form-floating mb-3 col-2">
-            <input type="text" class="form-control" id="casa" placeholder="-" />
-            <label for="casa" style="padding-left: 25px">-</label>
-          </div>
-        </div>
         <div class="form-floating mb-3 text-center">
-          <input type="text" id="telefono" class="form-control" placeholder="telefono" />
+          <input type="text" id="telefono" class="form-control" placeholder="Teléfono" />
           <label for="telefono" style="padding-left: 25px">Teléfono</label>
         </div>
         <div class="form-floating mb-3 text-center">
-          <input type="text" id="correo" class="form-control" placeholder="correo" />
-          <label for="correo" style="padding-left: 25px">Correo</label>
+          <input type="text" id="direccion" class="form-control" placeholder="Dirección" />
+          <label for="direccion" style="padding-left: 25px">Dirección</label>
         </div>
-        <div class="form-floating mb-3 text-center col-6">
-          <input type="text" id="contraseña" class="form-control" placeholder="contraseña" />
-          <label for="contraseña" style="padding-left: 25px">Contraseña</label>
+        <div class="form-floating mb-3 text-center">
+          <input type="text" id="dirAdInfo" class="form-control" placeholder="Descripción adicional" />
+          <label for="dirAdInfo" style="padding-left: 25px">Descripción adicional</label>
         </div>
-        <div class="form-floating mb-3 text-center col-6">
-          <input type="text" id="confContraseña" class="form-control" placeholder="confContraseña" />
+        <div class="form-floating mb-3 text-center col-lg-6">
+          <input type="text" id="email" class="form-control" placeholder="Correo" />
+          <label for="email" style="padding-left: 25px">Correo</label>
+        </div>
+        <div class="form-floating mb-3 text-center col-lg-6">
+          <input type="text" id="confCorreo" class="form-control" placeholder="Confirmar correo" />
+          <label for="confCorreo" style="padding-left: 25px">Confirmar correo</label>
+        </div>
+        <div class="form-floating mb-3 text-center col-lg-6">
+          <input type="password" id="password" class="form-control" placeholder="contraseña" />
+          <label for="password" style="padding-left: 25px">Contraseña</label>
+        </div>
+        <div class="form-floating mb-3 text-center col-lg-6">
+          <input type="password" id="confContraseña" class="form-control" placeholder="confContraseña" />
           <label for="confContraseña" style="padding-left: 25px">Confirmar contraseña</label>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="d-flex flex-col justify-content-center">
+        <button id="actualizar" class="btn btn-theme-primary mb-5">Actualizar</button>
+      </div>
+    </div>
   </div>
   <!--footer-->
-  <footer class="d-flex flex-column h-100 bg-dark" style="margin-top: 147px">
+  <footer class="d-flex flex-column h-100 bg-dark">
     <div class="row">
       <div class="col-5 text-white" style="padding-top: 15px; padding-left: 30px">
         <p>© 2023 BAI HAN, Inc</p>
