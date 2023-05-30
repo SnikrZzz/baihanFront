@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(valores);
 var id = urlParams.get('id');
 console.log(id)
 
-fetch(`http://3.128.182.247/api/products/byId${id}`).then(response => {
+fetch(`http://3.128.182.247/api/products/byId/${id}`).then(response => {
       return response.json()
 }).then(product => {
       document.getElementById("nombre").textContent = product.name
