@@ -109,26 +109,29 @@
           </div>
           <p id="descripcion">Descripción</p>
           <div class="row mb-3 justify-content-center">
-            <div class="col-3">
-              <button class="btn btn-dark">Comprar</button>
-            </div>
-            <div class="col-2">
-              <input type="number" class="form-control">
+            <div class="col-lg-3">
+              <button id="comprar" class="btn btn-theme-primary mt-5">Comprar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row my-2">
-      <div class="col-lg-8 mx-auto">
-        <div class="form-floating mb-3 validate">
+    <div class="row mt-4">
+      <div class="d-flex flex-col mt-5 mb-5 justify-content-center">
+        <div class="form-floating mb-3 validate col-lg-6 col-sm-9 col-9">
           <input type="text" name="comentario" id="comentario" class="form-control " placeholder="Comentario">
           <label for="apellidos">Comentario</label>
+          <div class="d-flex flex-col mt-3">
+            <button id="btncomentario" class="btn btn-dark">¡Comentar!</button>
+          </div>
       </div>
-        <button class="btn-dark btn" id="btncomentario">Texto boton</button>
       </div>
     </div>
-    <div id="comentarios" class="row"></div>
+    <div class="row">
+      <div class="d-flex flex-col justify-content-center">
+        <div id="comentarios" class="row"></div>
+      </div>
+    </div>
     <!--FOOTER-->
     <footer class="d-flex flex-column h-100 bg-dark" style="margin-top: 147px">
       <div class="row">
