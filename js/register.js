@@ -155,113 +155,8 @@ function mobileValidation() {
     }
 }
 
-telefono.onkeyup = () => { mobileValidation() }
+//ADDRESS VALIDATION
 
-//ADDRESS VALIDATIONS
-function viaValidation() {//"VIA"
-    const via = document.getElementById("via")
-    var input = document.getElementById("via").value
-    var pattern = /^[a-zA-Z0-9]+$/
-
-    if (input.match(pattern)) {
-        via.style.border = "2px solid #2FC11D"
-        setTimeout(() => {
-            via.style.cssText = previousStyle
-        }, 2000);
-        mostrarError(via, false);
-        return true
-    } else {
-        via.style.border = "2px solid red"
-        mostrarError(via, true);
-    }
-}
-
-via.onkeyup = () => { viaValidation() }
-
-function numeroValidation() {//"NUMERO"
-    const numero = document.getElementById("numero")
-    var input = document.getElementById("numero").value
-    var pattern = /^[a-zA-Z0-9]+$/
-
-    if (input.match(pattern)) {
-        numero.style.border = "2px solid #2FC11D"
-        setTimeout(() => {
-            numero.style.cssText = previousStyle
-        }, 2000);
-        mostrarError(numero, false);
-        return true
-    } else {
-        numero.style.border = "2px solid red"
-        mostrarError(numero, true);
-    }
-}
-
-numero.onkeyup = () => { numeroValidation() }
-
-function casaValidation() {//"CASA"
-    const casa = document.getElementById("casa")
-    var input = document.getElementById("casa").value
-    var pattern = /^[a-zA-Z0-9]+$/
-
-    if (input.match(pattern)) {
-        casa.style.border = "2px solid #2FC11D"
-        setTimeout(() => {
-            casa.style.cssText = previousStyle
-        }, 2000);
-        mostrarError(casa, false);
-        return true
-    } else {
-        casa.style.border = "2px solid red"
-        mostrarError(casa, true);
-    }
-}
-
-casa.onkeyup = () => { casaValidation() }
-
-//"DEPARTAMENTO"
-function departmentValidation() {
-    const departamento = document.getElementById("departamento")
-
-    if (departamento.selectedIndex != 0) {
-        mostrarError(departamento, false)
-        return true
-    } else {
-        mostrarError(departamento, true)
-        return false
-    }
-}
-
-document.getElementById("departamento").onchange = () => { departmentValidation() }
-
-//"CIUDAD"
-function ciudadValidation() {
-    const ciudad = document.getElementById("ciudad")
-
-    if (ciudad.selectedIndex != 0) {
-        mostrarError(ciudad, false);
-        return true
-    } else {
-        mostrarError(ciudad, true);
-        return false
-    }
-}
-
-document.getElementById("ciudad").onchange = () => { ciudadValidation() }
-
-//"TIPODECALLE"
-function tipoCalleValidation() {
-    const tipoCalle = document.getElementById("tipo_calle")
-
-    if (tipoCalle.selectedIndex != 0) {
-        mostrarError(tipoCalle, false);
-        return true
-    } else {
-        mostrarError(tipoCalle, true);
-        return false
-    }
-}
-
-document.getElementById("tipo_calle").onchange = () => { tipoCalleValidation() }
 
 //FINAL VALIDATION
 const checkbox = document.getElementById("acceptCheck")
@@ -275,13 +170,8 @@ checkbox.addEventListener("change", () => {
     passwordValidation() ? isValid++ : null;
     passwordConfirmationValidation() ? isValid++ : null;
     mobileValidation() ? isValid++ : null;
-    viaValidation() ? isValid++ : null;
-    numeroValidation() ? isValid++ : null;
-    casaValidation() ? isValid++ : null;
-    departmentValidation() ? isValid++ : null;
-    ciudadValidation() ? isValid++ : null;
-    tipoCalleValidation() ? isValid++ : null;
-    if (isValid == 13) {
+    console.log(isValid)
+    if (isValid == 7) {
         submitButton.classList.remove("disabled")
     }
 })
@@ -293,11 +183,11 @@ submitButton.onclick = () => {
         "correo": document.getElementById("email").value,
         "password": document.getElementById("password").value,
         "telefono": document.getElementById("telefono").value,
-        "direccion": "",
+        "direccion": document.getElementById("direccion").value,
         "descripcion": document.getElementById("refadd").value
     }
 
-    fetch("http://127.0.0.1:8080/api/customers/savecustomer", {
+    fetch("http://3.128.182.247/api/customers/savecustomer", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

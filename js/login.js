@@ -56,7 +56,7 @@ document.getElementById("loginBtn").onclick = () => {
     password: document.getElementById("password").value,
   };
 
-  fetch("http://127.0.0.1:8080/api/customers/login", {
+  fetch("http://3.128.182.247/api/customers/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -67,7 +67,7 @@ document.getElementById("loginBtn").onclick = () => {
       // Procesar la respuesta de la API
       response.json().then(function (data) {
         if (data.cedula == null) {
-          alert("usuario o contraseña incorrectos");
+          alert("No existe el usuario");
         } else {
           setCookie("userBaihan", data.cedula, 7);
           location.assign("./home.html");
