@@ -155,6 +155,9 @@ function mobileValidation() {
     }
 }
 
+//ADDRESS VALIDATION
+
+
 //FINAL VALIDATION
 const checkbox = document.getElementById("acceptCheck")
 var submitButton = document.getElementById("regBtn")
