@@ -186,22 +186,15 @@
         </div>
         <div class="row">
           <div>
-            <label for="formFileLg" class="form-label"
-              >Selecciona una imagen</label
-            >
-            <input
-              class="form-control form-control-lg mb-3"
-              id="formFileLg"
-              type="file"
-            />
+            <label for="formFileLg" class="form-label">Selecciona una imagen</label>
+            <input class="form-control form-control-lg mb-3" id="formFileLg" type="file" />
           </div>
         </div>
-        <button class="btn btn-theme-primary mt-3 disabled" id="publicar">
-          Publicar
-        </button>
+        <button class="btn btn-theme-primary mt-3 disabled" id="publicar" onclick="subirImagen()">Publicar</button>
       </div>
     </div>
     <script src="./js/registerProduct.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.103.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <footer class="px-5 mt-4 border-top bg-dark">

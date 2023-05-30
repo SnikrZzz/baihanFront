@@ -43,62 +43,63 @@ fetch(`http://3.128.182.247/api/products/byId/${id}`)
     document.getElementById("nombrep").textContent = product.name;
     document.getElementById("subtotal").textContent = "$ " + product.price;
     document.getElementById("cantidad").textContent = product.quantity;
-    document.getElementById("total").textContent = float(document.getElementById("subtotal")) * int(document.getElementById("cantidad"));
+    document.getElementById("total").textContent = parseFloat(document.getElementById("subtotal").textContent) * parseInt(document.getElementById("cantidad").textContent);
   });
 
+function iniciarMap() {
+  var coord = { lat: 4.6097100, lng: -74.0817500 };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: coord,
+    zoom: 10
+  });
+  var marker = new google.maps.Marker({
+    position: coord,
+    map: map,
+  });
+  var button = document.getElementById('button');
+  button.addEventListener('click', () => {
+    var direccion = document.getElementById('direccion').textContent;
+    mostrarUbicacionUsuario(map, marker, direccion);
+    console.log("Si sirve");
+  });
+}
+
 function mostrarUbicacionUsuario(map, marker, direccion) {
-    var geocoder = new google.maps.Geocoder();
-    // Realizar la geocodificación de la dirección
-    geocoder.geocode({ address: direccion }, function (results, status) {
-        if (status === "OK") {
-            if (results[0]) {
-                var coordenadas = results[0].geometry.location;
-                map.setCenter(coordenadas);
-                map.setZoom(10);
-                marker.setPosition(coordenadas);
-            } else {
-                alert("No se encontraron resultados para la dirección.");
-            }
-        } else {
-            alert("Geocodificación fallida debido a: " + status);
-        }
-    });
-  
-    //CURRENT LOCATION
-    /*if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            ({ coords: { latitude, longitude } }) => {
-                var coord = {
-                    lat: latitude,
-                    lng: longitude
-                };
-                map.setCenter(coord);
-                map.setZoom(10);
-                marker.setPosition(coord);
-            },
-            () => {
-                alert("Tu navegador tiene soporte de geolocalización, pero ocurrió un error.");
-            }
-        );
+  var geocoder = new google.maps.Geocoder();
+  // Realizar la geocodificación de la dirección
+  geocoder.geocode({ address: direccion }, function (results, status) {
+    if (status === "OK") {
+      if (results[0]) {
+        var coordenadas = results[0].geometry.location;
+        map.setCenter(coordenadas);
+        map.setZoom(10);
+        marker.setPosition(coordenadas);
+      } else {
+        alert("No se encontraron resultados para la dirección.");
+      }
     } else {
-        alert("Tu navegador no soporta geolocalización.");
-    }*/
+      alert("Geocodificación fallida debido a: " + status);
+    }
+  });
+
+  //CURRENT LOCATION
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+          ({ coords: { latitude, longitude } }) => {
+              var coord = {
+                  lat: latitude,
+                  lng: longitude
+              };
+              map.setCenter(coord);
+              map.setZoom(10);
+              marker.setPosition(coord);
+          },
+          () => {
+              alert("Tu navegador tiene soporte de geolocalización, pero ocurrió un error.");
+          }
+      );
+  } else {
+      alert("Tu navegador no soporta geolocalización.");
   }
-  
-  function iniciarMap() {
-    var coord = { lat: 4.6097100, lng: -74.0817500 };
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: coord,
-        zoom: 10
-    });
-    var marker = new google.maps.Marker({
-        position: coord,
-        map: map,
-    });
-  
-    var button = document.getElementById('button');
-    button.addEventListener('click', () => {
-        var direccion = document.getElementById('direccion').textContent;
-        mostrarUbicacionUsuario(map, marker, direccion);
-    });
-  }
+}
+

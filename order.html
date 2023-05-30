@@ -1,214 +1,158 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ecomerce</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-  </head>
-  <body>
-    <!--HEADER-->
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="collapse navbar-collapse justify-content-center"
-        id="navbarNav"
-      >
-        <ul class="navbar-nav">
-          <a class="navbar-brand pt-1" href="home.html">
-            <img
-              src="img/icon.png"
-              alt="Logo"
-              style="width: 36px; height: 36px"
-              class="m-3 mt-0 mb-0"
-            />BAI HAN
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ecomerce</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+  <!--HEADER-->
+  <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <a class="navbar-brand pt-1" href="home.html">
+          <img src="img/icon.png" alt="Logo" style="width: 36px; height: 36px" class="m-3 mt-0 mb-0" />BAI HAN
+        </a>
+      </ul>
+      <form class="form-inline">
+        <div class="input-group">
+          <input type="text" id="productId" class="form-control mr-sm-2" placeholder="Buscar" />
+          <button id="search" class="btn btn-outline-secondary my-2 my-sm-0">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="registerProduct.html">Vender</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="img/usuario.png" class="rounded" alt="Usuario" style="width: 36px; height: 36px" />
           </a>
-        </ul>
-        <form class="form-inline">
-          <div class="input-group">
-            <input
-              type="text"
-              id="productId"
-              class="form-control mr-sm-2"
-              placeholder="Buscar"
-            />
-            <button id="search" class="btn btn-outline-secondary my-2 my-sm-0">
-              <i class="bi bi-search"></i>
-            </button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="profile.html">Perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Cerrar sesión</a>
           </div>
-        </form>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="registerProduct.html">Vender</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <img
-                src="img/usuario.png"
-                class="rounded"
-                alt="Usuario"
-                style="width: 36px; height: 36px"
-              />
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="profile.html">Perfil</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Cerrar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--CONTENT-->
+  <div class="container-orden" style="margin: 73px">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row mb-3">
+              <h class="card-title fs-2 fw-bold">Datos de la orden</h>
             </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!--CONTENT-->
-    <div class="container-orden" style="margin: 73px">
-      <div class="row">
-        <div class="col-lg-9">
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row mb-3">
-                <h class="card-title fs-2 fw-bold">Datos de la orden</h>
-              </div>
-              <p id="cedula" class="fs-4 fw-bold">Cédula</p>
-              <p id="nombre" class="fs-5">Nombre</p>
-              <p id="telefono" class="fs-5">Teléfono</p>
-              <p id="correo" class="fs-5">Correo</p>
-              <p id="direccion" class="fs-5">Dirección</p>
-              <br />
-              <h5 class="card-title">PRODUCTOS</h5>
-              <br />
-              <div class="alert alert-light mt-3" style="margin-bottom: 20px">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Imagen</th>
-                      <th scope="col">Producto</th>
-                      <th scope="col">Precio</th>
-                      <th scope="col">Cantidad</th>
-                      <th scope="col">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <img
-                          src="img/imagen-no-disponible.jpg"
-                          alt="Img-product"
-                          class="img-fluid"
-                          style="max-width: 100px"
-                        />
-                      </td>
-                      <td id="nombrep">Nombre del producto 1</td>
-                      <td id="subtotal">$19.99</td>
-                      <td id="cantidad">2</td>
-                      <td id="total">$39.98</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="card-title">Resumen de la orden</h2>
-              <ul class="list-group">
-                <li class="list-group-item"><h5>Total: $64.97</h5></li>
-                <div id="map"></div>
-                <a href="paymentMethod.html" class="btn btn-dark">Comprar</a>
-              </ul>
+            <p id="cedula" class="fs-4 fw-bold">Cédula</p>
+            <p id="nombre" class="fs-5">Nombre</p>
+            <p id="telefono" class="fs-5">Teléfono</p>
+            <p id="correo" class="fs-5">Correo</p>
+            <p id="direccion" class="fs-5">Dirección</p>
+            <br />
+            <h5 class="card-title">PRODUCTOS</h5>
+            <br />
+            <div class="alert alert-light mt-3" style="margin-bottom: 20px">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img src="img/imagen-no-disponible.jpg" alt="Img-product" class="img-fluid"
+                        style="max-width: 100px" />
+                    </td>
+                    <td id="nombrep">Nombre del producto 1</td>
+                    <td id="subtotal">$19.99</td>
+                    <td id="cantidad">2</td>
+                    <td id="total">$39.98</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="d-flex flex-col justify-content-center">
-          <button id="button" class="btn btn-theme-primary mt-5" style="width:auto">Mostrar mi ubicación</button>
-        </div>
-        <div class="d-flex flex-col justify-content-center mt-5 mb-5">
-          <div id="map" style="width: 70%; height: 500px;"></div>
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Resumen de la orden</h2>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <h5>Total: $64.97</h5>
+              </li>
+              <div id="map"></div>
+              <a href="paymentMethod.html" class="btn btn-dark">Comprar</a>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    <!--FOOTER-->
-    <footer class="d-flex flex-column h-100 bg-dark" style="margin-top: 147px">
-      <div class="row">
-        <div
-          class="col-5 text-white"
-          style="padding-top: 15px; padding-left: 30px"
-        >
-          <p>© 2023 BAI HAN, Inc</p>
-        </div>
-        <div class="col-2 text-white d-flex">
-          <a
-            href="/"
-            class="col-md-4 w-100 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
-          >
-            <img
-              src="img/icon.png"
-              alt="Logo"
-              style="width: 36px; height: 36px"
-              class="m-3 mt-0 mb-0"
-            />
-          </a>
-        </div>
-        <div class="col-5 text-white">
-          <ul
-            class="nav justify-content-end list-unstyled d-flex"
-            style="padding-top: 9px; padding-right: 30px"
-          >
-            <li class="ms-3">
-              <a class="text-white fs-4" href="#"
-                ><i class="bi bi-twitter"></i
-              ></a>
-            </li>
-            <li class="ms-3">
-              <a class="text-white fs-4" href="#"
-                ><i class="bi bi-instagram"></i
-              ></a>
-            </li>
-            <li class="ms-3">
-              <a class="text-white fs-4" href="#"
-                ><i class="bi bi-facebook"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
+    <div class="row">
+      <div class="d-flex flex-col justify-content-center">
+        <button id="button" class="btn btn-theme-primary mt-5" style="width:auto">Mostrar mi ubicación</button>
       </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfL8gT9Fb1guQ4rsvDigWqDejto1j2Wjw&callback=iniciarMap" async defer></script>
-    <script src="/js/order.js"></script>
-  </body>
+      <div class="d-flex flex-col justify-content-center mt-5 mb-5">
+        <div id="map" style="width: 100%; height: 500px;"></div>
+      </div>
+    </div>
+  </div>
+  <!--FOOTER-->
+  <footer class="d-flex flex-column h-100 bg-dark" style="margin-top: 147px">
+    <div class="row">
+      <div class="col-5 text-white" style="padding-top: 15px; padding-left: 30px">
+        <p>© 2023 BAI HAN, Inc</p>
+      </div>
+      <div class="col-2 text-white d-flex">
+        <a href="/"
+          class="col-md-4 w-100 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <img src="img/icon.png" alt="Logo" style="width: 36px; height: 36px" class="m-3 mt-0 mb-0" />
+        </a>
+      </div>
+      <div class="col-5 text-white">
+        <ul class="nav justify-content-end list-unstyled d-flex" style="padding-top: 9px; padding-right: 30px">
+          <li class="ms-3">
+            <a class="text-white fs-4" href="#"><i class="bi bi-twitter"></i></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-white fs-4" href="#"><i class="bi bi-instagram"></i></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-white fs-4" href="#"><i class="bi bi-facebook"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/order.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfL8gT9Fb1guQ4rsvDigWqDejto1j2Wjw&callback=iniciarMap" defer></script>
+</body>
+
 </html>
