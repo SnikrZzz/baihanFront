@@ -95,11 +95,14 @@
         <div class="col-lg-9">
           <div class="card mb-4">
             <div class="card-body">
-              <h5 class="card-title">Datos de la orden</h5>
-              <br />
-              <h6>Nombre: John Doe</h6>
-              <h6>Correo: johndoe@example.com</h6>
-              <h6>Dirección: 1234 Calle Principal, Ciudad</h6>
+              <div class="row mb-3">
+                <h class="card-title fs-2 fw-bold">Datos de la orden</h>
+              </div>
+              <p id="cedula" class="fs-4 fw-bold">Cédula</p>
+              <p id="nombre" class="fs-5">Nombre</p>
+              <p id="telefono" class="fs-5">Teléfono</p>
+              <p id="correo" class="fs-5">Correo</p>
+              <p id="direccion" class="fs-5">Dirección</p>
               <br />
               <h5 class="card-title">PRODUCTOS</h5>
               <br />
@@ -124,10 +127,10 @@
                           style="max-width: 100px"
                         />
                       </td>
-                      <td>Nombre del producto 1</td>
-                      <td>$19.99</td>
-                      <td>2</td>
-                      <td>$39.98</td>
+                      <td id="nombrep">Nombre del producto 1</td>
+                      <td id="subtotal">$19.99</td>
+                      <td id="cantidad">2</td>
+                      <td id="total">$39.98</td>
                     </tr>
                   </tbody>
                 </table>
@@ -146,6 +149,14 @@
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex flex-col justify-content-center">
+          <button id="button" class="btn btn-theme-primary mt-5" style="width:auto">Mostrar mi ubicación</button>
+        </div>
+        <div class="d-flex flex-col justify-content-center mt-5 mb-5">
+          <div id="map" style="width: 70%; height: 500px;"></div>
         </div>
       </div>
     </div>
@@ -197,5 +208,7 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfL8gT9Fb1guQ4rsvDigWqDejto1j2Wjw&callback=iniciarMap" async defer></script>
+    <script src="/js/order.js"></script>
   </body>
 </html>
