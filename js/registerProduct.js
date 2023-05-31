@@ -149,7 +149,14 @@ button.addEventListener("click", (event) => {
   const brand = document.getElementById("marca").value;
   const quantity = document.getElementById("cantidad").value;
   const price = document.getElementById("precio").value;
-  const picture = document.getElementById("imageInput").file.name;
+  
+  const imageInput = document.getElementById('imageInput');
+  let picture = null;
+
+  imageInput.onchange = function () {
+    picture = imageInput.value;
+    console.log(picture);
+  };
 
   const cedula = getCookie("userBaihan");
 
