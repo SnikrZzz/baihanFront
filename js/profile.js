@@ -102,12 +102,18 @@ getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
       "</div>" +
       "</div>" +
       '<div class="row">' +
-      '<div class="col-6">' +
+      '<div class="col-8">' +
       '<a href="product.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
       '<p style="font-size: 25px"> $ ' +
       element.price +
       " COP </p>" +
       "</div>" +
+      '<div class="col-2">' +
+      '<button id="editar" class="btn btn-theme-primary">Editar</button>' + //BOTÓN EDITAR
+      '</div>' +
+      '<div class="col-2">' +
+      '<button id="eliminar" class="btn btn-theme-primary">Eliminar</button>' + //BOTÓN ELIMINAR
+      '</div>' +
       "</div>" +
       "</div>" +
       "</div>" +
@@ -125,4 +131,3 @@ function getData(url) {
       result = data;
     })
     .catch((error) => console.error(error));
-}
