@@ -126,7 +126,7 @@ function getData(url) {
     })
     .catch((error) => console.error(error));
 }
-
+/*
 function iniciarMap() {
   var coord = { lat: 4.6097100, lng: -74.0817500 };
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -182,4 +182,4 @@ function mostrarUbicacionUsuario(map, marker, direccion) {
   } else {
       alert("Tu navegador no soporta geolocalización.");
   }
-}
+}*/

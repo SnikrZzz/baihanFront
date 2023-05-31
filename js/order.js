@@ -35,16 +35,30 @@ function getCookie(nombre) {
 var id = urlParams.get("id");
 console.log(id);
 
-fetch(`http://3.128.182.247/api/products/byId/${id}`)
-  .then((response) => {
-    return response.json();
-  })
-  .then((product) => {
-    document.getElementById("nombrep").textContent = product.name;
-    document.getElementById("subtotal").textContent = "$ " + product.price;
-    document.getElementById("cantidad").textContent = product.quantity;
-    document.getElementById("total").textContent = parseFloat(document.getElementById("subtotal").textContent) * parseInt(document.getElementById("cantidad").textContent);
-  });
+if (id) {
+  fetch(`http://3.128.182.247/api/products/byId/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error en la solicitud de producto");
+      }
+      return response.json();
+    })
+    .then((product) => {
+      document.getElementById("codigoean").textContent = product.id;
+      document.getElementById("nombre").textContent = product.name;
+      document.getElementById("subtotal").textContent = "$ " + product.price;
+      document.getElementById("cantidad").textContent = product.quantity;
+      document.getElementById("total").textContent =
+        parseFloat(document.getElementById("subtotal").textContent) *
+        parseInt(document.getElementById("cantidad").textContent);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+} else {
+  console.error("El ID no está definido");
+}
+
 
 function iniciarMap() {
   var coord = { lat: 4.6097100, lng: -74.0817500 };
@@ -60,7 +74,7 @@ function iniciarMap() {
   button.addEventListener('click', () => {
     var direccion = document.getElementById('direccion').textContent;
     mostrarUbicacionUsuario(map, marker, direccion);
-    console.log("Si sirve");
+    //console.log("Si sirve");
   });
 }
 
@@ -84,22 +98,22 @@ function mostrarUbicacionUsuario(map, marker, direccion) {
 
   //CURRENT LOCATION
   if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-          ({ coords: { latitude, longitude } }) => {
-              var coord = {
-                  lat: latitude,
-                  lng: longitude
-              };
-              map.setCenter(coord);
-              map.setZoom(10);
-              marker.setPosition(coord);
-          },
-          () => {
-              alert("Tu navegador tiene soporte de geolocalización, pero ocurrió un error.");
-          }
-      );
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        var coord = {
+          lat: latitude,
+          lng: longitude
+        };
+        map.setCenter(coord);
+        map.setZoom(10);
+        marker.setPosition(coord);
+      },
+      () => {
+        alert("Tu navegador tiene soporte de geolocalización, pero ocurrió un error.");
+      }
+    );
   } else {
-      alert("Tu navegador no soporta geolocalización.");
+    alert("Tu navegador no soporta geolocalización.");
   }
 }
 

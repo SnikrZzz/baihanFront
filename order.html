@@ -66,9 +66,9 @@
             <p id="telefono" class="fs-5">Teléfono</p>
             <p id="correo" class="fs-5">Correo</p>
             <p id="direccion" class="fs-5">Dirección</p>
-            <br />
+            <br>
             <h5 class="card-title">PRODUCTOS</h5>
-            <br />
+            <br>
             <div class="alert alert-light mt-3" style="margin-bottom: 20px">
               <table class="table">
                 <thead>
@@ -86,13 +86,17 @@
                       <img src="img/imagen-no-disponible.jpg" alt="Img-product" class="img-fluid"
                         style="max-width: 100px" />
                     </td>
-                    <td id="nombrep">Nombre del producto 1</td>
+                    <td id="nombre">Nombre del producto 1</td>
                     <td id="subtotal">$19.99</td>
                     <td id="cantidad">2</td>
                     <td id="total">$39.98</td>
                   </tr>
                 </tbody>
               </table>
+              <div id="map" style="width: 100%; height: 350px;"></div>
+              <div class="d-flex flex-col justify-content-center">
+                <button id="button" class="btn btn-theme-primary mt-5" style="width:auto">Mostrar mi ubicación</button>
+              </div>
             </div>
           </div>
         </div>
@@ -112,15 +116,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="d-flex flex-col justify-content-center">
-        <button id="button" class="btn btn-theme-primary mt-5" style="width:auto">Mostrar mi ubicación</button>
-      </div>
-      <div class="d-flex flex-col justify-content-center mt-5 mb-5">
-        <div id="map" style="width: 100%; height: 500px;"></div>
-      </div>
-    </div>
   </div>
+  
   <!--FOOTER-->
   <footer class="d-flex flex-column h-100 bg-dark" style="margin-top: 147px">
     <div class="row">
@@ -149,10 +146,11 @@
     </div>
   </footer>
 
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2e0K5UACff0mcxsiaG7Ktg8-eEnJvYIU&callback=iniciarMap" defer></script>
+  <script src="js/order.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="js/order.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfL8gT9Fb1guQ4rsvDigWqDejto1j2Wjw&callback=iniciarMap" defer></script>
+  <script src="js/product.js"></script>
 </body>
 
 </html>
