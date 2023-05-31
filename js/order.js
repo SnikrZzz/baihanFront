@@ -44,13 +44,11 @@ if (id) {
       return response.json();
     })
     .then((product) => {
-      document.getElementById("codigoean").textContent = product.id;
-      document.getElementById("nombre").textContent = product.name;
+      document.getElementById("pnombre").textContent = product.name;
       document.getElementById("subtotal").textContent = "$ " + product.price;
       document.getElementById("cantidad").textContent = product.quantity;
-      document.getElementById("total").textContent =
-        parseFloat(document.getElementById("subtotal").textContent) *
-        parseInt(document.getElementById("cantidad").textContent);
+      document.getElementById("total").textContent = "$ " + parseFloat(product.price) * parseInt(product.quantity);
+      document.getElementById("totalOrden").textContent = "$ " + parseFloat(product.price) * parseInt(product.quantity);
     })
     .catch((error) => {
       console.error(error);
@@ -97,7 +95,7 @@ function mostrarUbicacionUsuario(map, marker, direccion) {
   });
 
   //CURRENT LOCATION
-  if (navigator.geolocation) {
+  /*if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
         var coord = {
@@ -114,6 +112,6 @@ function mostrarUbicacionUsuario(map, marker, direccion) {
     );
   } else {
     alert("Tu navegador no soporta geolocalización.");
-  }
+  }*/
 }
 
