@@ -143,6 +143,52 @@ function validate() {
 }
 
 button.addEventListener("click", (event) => {
+
+    const eanCode = document.getElementById("codigoean").value;
+    const name = document.getElementById("nombre").value;
+    const description = document.getElementById("descripcion").value;
+    const brand = document.getElementById("marca").value;
+    const quantity = document.getElementById("cantidad").value;
+    const price = document.getElementById("precio").value;
+
+    const imageInput = document.getElementById('imageInput');
+
+
+
+    const picture = imageInput.files[0].name;
+
+    const cedula = getCookie("userBaihan");
+
+
+
+    const product = {
+        eanCode: eanCode,
+        name: name,
+        description: description,
+        brand: brand,
+        quantity: quantity,
+        price: price,
+        picture: picture,
+        customer: { cedula: cedula },
+    };
+    console.log(product)
+
+    sendData("http://3.128.182.247/api/products/save", product);
+
+});
+
+function getCookie(nombre) {
+    var nombreCookie = nombre + "=";
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) == " ") {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(nombreCookie) == 0) {
+            return cookie.substring(nombreCookie.length, cookie.length);
+        }
+      
   const eanCode = document.getElementById("codigoean").value;
   const name = document.getElementById("nombre").value;
   const description = document.getElementById("descripcion").value;
@@ -185,6 +231,7 @@ function getCookie(nombre) {
     var cookie = cookies[i];
     while (cookie.charAt(0) == " ") {
       cookie = cookie.substring(1);
+
     }
     if (cookie.indexOf(nombreCookie) == 0) {
       return cookie.substring(nombreCookie.length, cookie.length);
@@ -194,6 +241,56 @@ function getCookie(nombre) {
 }
 
 function sendData(url, object) {
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(object),
+    }).then(function (response) {
+        if (response.ok) {
+            // Procesar la respuesta de la API
+            response.json().then(function (data) {
+                uploadImage();
+                return true;
+            });
+        } else {
+            // Manejar los errores de la API
+            //console.log("Error en la solicitud");
+            return false;
+        }
+    });
+}
+
+function uploadImage() {
+    // Obtener el elemento de entrada de archivo
+    var input = document.getElementById("imageInput");
+
+    // Verificar si se seleccionó un archivo
+    if (input.files.length > 0) {
+        var file = input.files[0];
+
+        // Crear un objeto FormData para enviar el archivo al servidor
+        var formData = new FormData();
+        formData.append("file", file);
+
+        // Realizar una solicitud POST al servidor Flask
+        fetch("http://3.128.182.247:5000/upload", {
+            //Cambiar la IP local al del servicio
+            method: "POST",
+            body: formData,
+        })
+            .then((response) => response.text())
+            .then((data) => {
+                console.log(data); // Manejar la respuesta del servidor
+                console.log('SI SE SUBIO')
+                window.location.href = "home.html";
+            })
+            .catch((error) => {
+                console.error("Error al enviar la imagen:", error);
+            });
+
   fetch(url, {
     method: "POST",
     headers: {
@@ -258,11 +355,74 @@ function subirImagen() {
   s3.upload(params, function (err, data) {
     if (err) {
       console.log(err, err.stack);
+
     } else {
       console.log("Imagen cargada exitosamente en S3.");
       console.log("URL de acceso público: " + data.Location);
     }
   });
+}
+
+function subirImagen() {
+    var fileInput = document.getElementById("formFileLg");
+    var file = fileInput.files[0];
+
+    var params = {
+        Bucket: "s3-imag",
+        Key: "photokey",
+        Body: file,
+        ACL: "public-read",
+    };
+
+    s3.upload(params, function (err, data) {
+        if (err) {
+            console.log(err, err.stack);
+        } else {
+            console.log("Imagen cargada exitosamente en S3.");
+            console.log("URL de acceso público: " + data.Location);
+        }
+    });
+}
+
+function mostrarUbicacionUsuario(map, marker, direccion) {
+    var geocoder = new google.maps.Geocoder();
+    // Realizar la geocodificación de la dirección
+    geocoder.geocode({ address: direccion }, function (results, status) {
+        if (status === "OK") {
+            if (results[0]) {
+                var coordenadas = results[0].geometry.location;
+                map.setCenter(coordenadas);
+                map.setZoom(10);
+                marker.setPosition(coordenadas);
+            } else {
+                alert("No se encontraron resultados para la dirección.");
+            }
+        } else {
+            alert("Geocodificación fallida debido a: " + status);
+        }
+    });
+
+    //CURRENT LOCATION
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            ({ coords: { latitude, longitude } }) => {
+                var coord = {
+                    lat: latitude,
+                    lng: longitude,
+                };
+                map.setCenter(coord);
+                map.setZoom(10);
+                marker.setPosition(coord);
+            },
+            () => {
+                alert(
+                    "Tu navegador tiene soporte de geolocalización, pero ocurrió un error."
+                );
+            }
+        );
+    } else {
+        alert("Tu navegador no soporta geolocalización.");
+    }
 }
 
 function mostrarUbicacionUsuario(map, marker, direccion) {
@@ -305,3 +465,4 @@ function mostrarUbicacionUsuario(map, marker, direccion) {
     alert("Tu navegador no soporta geolocalización.");
   }
 }
+
