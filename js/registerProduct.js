@@ -160,7 +160,7 @@ button.addEventListener("click", (event) => {
         price: price,
         customer: { cedula: cedula }
     };
-
+    uploadImage()
     sendData("http://3.128.182.247/api/products/save", product);
 
     window.location.href = "home.html";
@@ -202,14 +202,6 @@ function sendData(url, object) {
     });
 }
 
-AWS.config.update({
-    accessKeyId: 'TAKIA6MPTF7DYCGV2GPV5',
-    secretAccessKey: 'nYBhrcR8Q9vaBX8jJngNNT9z6egAQpa0b0foJhTe'
-});
-
-var s3 = new AWS.S3({
-    region: 'EE. UU. Este (Ohio) us-east-2'
-});
 
 function uploadImage() {
     // Obtener el elemento de entrada de archivo
@@ -224,7 +216,7 @@ function uploadImage() {
         formData.append("file", file);
 
         // Realizar una solicitud POST al servidor Flask
-        fetch("http://127.0.0.1:5000/upload", {
+        fetch("http://3.128.182.247:5000/upload", { //Cambiar la IP local al del servicio
             method: "POST",
             body: formData
         })
