@@ -151,7 +151,7 @@ button.addEventListener("click", (event) => {
   const price = document.getElementById("precio").value;
   
   const imageInput = document.getElementById('imageInput');
-  let picture = null;
+  const picture = null;
 
   imageInput.onchange = function () {
     picture = imageInput.value;
