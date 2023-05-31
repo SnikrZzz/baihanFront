@@ -12,6 +12,14 @@ fetch(`http://3.128.182.247/api/products/byId/${id}`)
     document.getElementById("marca").textContent = "Marca: " + product.brand;
     document.getElementById("precio").textContent = "$ " + product.price;
     document.getElementById("descripcion").textContent = product.description;
+
+    fetch("http://3.128.182.247:5000/getImageLink/" + product.picture).then(response => {
+      return response.json();
+    }).then(data => {
+      document.getElementById("picture").src = data.url;
+      console.log(data)
+    })
+
   });
 
 function cargarcomentarios() {
@@ -65,5 +73,5 @@ btncomentario.addEventListener("click", (e) => {
 });
 
 document.getElementById("comprar").onclick = () => {
-  location.assign("./order.html");
+  location.assign("./order.html?id=" + id);
 };
