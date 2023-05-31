@@ -211,64 +211,32 @@ var s3 = new AWS.S3({
     region: 'EE. UU. Este (Ohio) us-east-2'
 });
 
+function uploadImage() {
+    // Obtener el elemento de entrada de archivo
+    var input = document.getElementById("imageInput");
 
-function subirImagen() {
-    var fileInput = document.getElementById('formFileLg');
-    var file = fileInput.files[0];
+    // Verificar si se seleccionó un archivo
+    if (input.files.length > 0) {
+        var file = input.files[0];
 
-    var params = {
-        Bucket: 's3-imag',
-        Key: 'photokey',
-        Body: file,
-        ACL: 'public-read'
-    };
+        // Crear un objeto FormData para enviar el archivo al servidor
+        var formData = new FormData();
+        formData.append("file", file);
 
-    s3.upload(params, function (err, data) {
-        if (err) {
-            console.log(err, err.stack);
-        } else {
-            console.log('Imagen cargada exitosamente en S3.');
-            console.log('URL de acceso público: ' + data.Location);
-        }
-    });
-}
-
-function mostrarUbicacionUsuario(map, marker, direccion) {
-    var geocoder = new google.maps.Geocoder();
-    // Realizar la geocodificación de la dirección
-    geocoder.geocode({ address: direccion }, function (results, status) {
-      if (status === "OK") {
-        if (results[0]) {
-          var coordenadas = results[0].geometry.location;
-          map.setCenter(coordenadas);
-          map.setZoom(10);
-          marker.setPosition(coordenadas);
-        } else {
-          alert("No se encontraron resultados para la dirección.");
-        }
-      } else {
-        alert("Geocodificación fallida debido a: " + status);
-      }
-    });
-  
-    //CURRENT LOCATION
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        ({ coords: { latitude, longitude } }) => {
-          var coord = {
-            lat: latitude,
-            lng: longitude
-          };
-          map.setCenter(coord);
-          map.setZoom(10);
-          marker.setPosition(coord);
-        },
-        () => {
-          alert("Tu navegador tiene soporte de geolocalización, pero ocurrió un error.");
-        }
-      );
+        // Realizar una solicitud POST al servidor Flask
+        fetch("http://127.0.0.1:5000/upload", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Manejar la respuesta del servidor
+            })
+            .catch(error => {
+                console.error("Error al enviar la imagen:", error);
+            });
     } else {
-      alert("Tu navegador no soporta geolocalización.");
+        console.log("No se seleccionó ningún archivo.");
     }
-  }
+}
 
