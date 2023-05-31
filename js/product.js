@@ -65,5 +65,5 @@ btncomentario.addEventListener("click", (e) => {
 });
 
 document.getElementById("comprar").onclick = () => {
-  location.assign("./order.html");
+  location.assign("./order.html?id=" + id);
 };

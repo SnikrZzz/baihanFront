@@ -102,12 +102,18 @@ getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
       "</div>" +
       "</div>" +
       '<div class="row">' +
-      '<div class="col-6">' +
+      '<div class="col-8">' +
       '<a href="product.html" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
       '<p style="font-size: 25px"> $ ' +
       element.price +
       " COP </p>" +
       "</div>" +
+      '<div class="col-2">' +
+      '<button id="editar" class="btn btn-theme-primary">Editar</button>' + //BOTÓN EDITAR
+      '</div>' +
+      '<div class="col-2">' +
+      '<button id="eliminar" class="btn btn-theme-primary">Eliminar</button>' + //BOTÓN ELIMINAR
+      '</div>' +
       "</div>" +
       "</div>" +
       "</div>" +
@@ -126,60 +132,3 @@ function getData(url) {
     })
     .catch((error) => console.error(error));
 }
-/*
-function iniciarMap() {
-  var coord = { lat: 4.6097100, lng: -74.0817500 };
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: coord,
-    zoom: 10
-  });
-  var marker = new google.maps.Marker({
-    position: coord,
-    map: map,
-  });
-  var button = document.getElementById('button');
-  button.addEventListener('click', () => {
-    var direccion = document.getElementById('direccion').textContent;
-    mostrarUbicacionUsuario(map, marker, direccion);
-    console.log("Si sirve");
-  });
-}
-
-function mostrarUbicacionUsuario(map, marker, direccion) {
-  var geocoder = new google.maps.Geocoder();
-  // Realizar la geocodificación de la dirección
-  geocoder.geocode({ address: direccion }, function (results, status) {
-    if (status === "OK") {
-      if (results[0]) {
-        var coordenadas = results[0].geometry.location;
-        map.setCenter(coordenadas);
-        map.setZoom(10);
-        marker.setPosition(coordenadas);
-      } else {
-        alert("No se encontraron resultados para la dirección.");
-      }
-    } else {
-      alert("Geocodificación fallida debido a: " + status);
-    }
-  });
-
-  //CURRENT LOCATION
-  if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-          ({ coords: { latitude, longitude } }) => {
-              var coord = {
-                  lat: latitude,
-                  lng: longitude
-              };
-              map.setCenter(coord);
-              map.setZoom(10);
-              marker.setPosition(coord);
-          },
-          () => {
-              alert("Tu navegador tiene soporte de geolocalización, pero ocurrió un error.");
-          }
-      );
-  } else {
-      alert("Tu navegador no soporta geolocalización.");
-  }
-}*/
