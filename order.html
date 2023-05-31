@@ -72,7 +72,7 @@
             <div class="alert alert-light mt-3" style="margin-bottom: 20px">
               <table class="table">
                 <thead>
-                  <tr>
+                  <tr class="fs-5 align-middle text-center">
                     <th scope="col">Imagen</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Precio</th>
@@ -81,15 +81,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr class="align-middle text-center">
                     <td>
                       <img src="img/imagen-no-disponible.jpg" alt="Img-product" class="img-fluid"
                         style="max-width: 100px" />
                     </td>
-                    <td id="nombre">Nombre del producto 1</td>
-                    <td id="subtotal">$19.99</td>
-                    <td id="cantidad">2</td>
-                    <td id="total">$39.98</td>
+                    <td id="pnombre"></td>
+                    <td id="subtotal"></td>
+                    <td id="cantidad"></td>
+                    <td id="total"></td>
                   </tr>
                 </tbody>
               </table>
@@ -104,13 +104,13 @@
       <div class="col-lg-3">
         <div class="card">
           <div class="card-body">
-            <h2 class="card-title">Resumen de la orden</h2>
+            <h2 class="card-title text-center">Resumen de la orden</h2>
             <ul class="list-group">
-              <li class="list-group-item">
-                <h5>Total: $64.97</h5>
+              <li class="list-group-item my-3">
+                <h5 id="totalOrden" class="text-center align-middle mt-2"></h5>
               </li>
               <div id="map"></div>
-              <a href="paymentMethod.html" class="btn btn-dark">Comprar</a>
+              <a href="paymentMethod.html" class="btn btn-theme-primary">Comprar</a>
             </ul>
           </div>
         </div>
