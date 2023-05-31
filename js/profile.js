@@ -131,3 +131,4 @@ function getData(url) {
       result = data;
     })
     .catch((error) => console.error(error));
+}
