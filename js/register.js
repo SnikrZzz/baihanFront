@@ -155,7 +155,7 @@ function mobileValidation() {
     }
 }
 
-//ADDRESS VALIDATION
+telefono.onkeyup = () => { mobileValidation() }
 
 
 //FINAL VALIDATION

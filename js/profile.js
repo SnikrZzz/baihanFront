@@ -70,6 +70,7 @@ document.getElementById("actualizar").onclick = () => {
 getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
   result.forEach((element) => {
     const producto = document.createElement("div");
+    const code = parseInt(element.eanCode);
     producto.classList.add(
       "card",
       "mb-3",
@@ -84,7 +85,7 @@ getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
       '<a href="product.html?id=' +
       element.eanCode +
       '" class="text-dark" style="text-decoration: none">' +
-      '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
+      '<img src="http://3.128.182.247:5000/static/uploads/'+ element.picture +'" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
       "</div>" +
       '<div class="col-md-8" style="margin-left: 12px">' +
       '<div class="card-body d-flex flex-column h-100 justify-content-between">' +
@@ -108,21 +109,45 @@ getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
       element.price +
       " COP </p>" +
       "</div>" +
+      "</a>" +
       '<div class="col-2">' +
-      '<button id="editar" class="btn btn-theme-primary">Editar</button>' + //BOTÓN EDITAR
+      '<button id="' + element.eanCode + '" class="btn btn-theme-primary">Editar</button>' + //BOTÓN EDITAR
       '</div>' +
       '<div class="col-2">' +
-      '<button id="eliminar" class="btn btn-theme-primary">Eliminar</button>' + //BOTÓN ELIMINAR
+      '<button id="' + element.eanCode + 'eliminar' + '" class="btn btn-theme-primary">Eliminar</button>' + //BOTÓN ELIMINAR
       '</div>' +
       "</div>" +
       "</div>" +
       "</div>" +
-      "</div>" +
-      "</a>";
+      "</div>";
 
     document.getElementById("productos").appendChild(producto);
+
+    document.getElementById(element.eanCode).addEventListener("click", edit)
+    document.getElementById(element.eanCode + 'eliminar').addEventListener("click", () => {
+      console.log(code)
+      fetch("http://3.128.182.247/api/products/" + code, {
+        method: "DELETE",
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log(code)
+          console.log('Product deleted successfully');
+        } else {
+          console.log('No sirve');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    })
   });
 });
+
+function edit(event){
+  const idProducto = event.srcElement.id;
+  window.location.href = "./updateProduct.html?id=" + idProducto;
+}
 
 function getData(url) {
   return fetch(url)

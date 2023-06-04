@@ -49,6 +49,7 @@ if (id) {
       document.getElementById("cantidad").textContent = product.quantity;
       document.getElementById("total").textContent = "$ " + parseFloat(product.price) * parseInt(product.quantity);
       document.getElementById("totalOrden").textContent = "$ " + parseFloat(product.price) * parseInt(product.quantity);
+      document.getElementById("picture").src="http://3.128.182.247:5000/static/uploads/" + product.picture;
     })
     .catch((error) => {
       console.error(error);
@@ -93,25 +94,5 @@ function mostrarUbicacionUsuario(map, marker, direccion) {
       alert("Geocodificación fallida debido a: " + status);
     }
   });
-
-  //CURRENT LOCATION
-  /*if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      ({ coords: { latitude, longitude } }) => {
-        var coord = {
-          lat: latitude,
-          lng: longitude
-        };
-        map.setCenter(coord);
-        map.setZoom(10);
-        marker.setPosition(coord);
-      },
-      () => {
-        alert("Tu navegador tiene soporte de geolocalización, pero ocurrió un error.");
-      }
-    );
-  } else {
-    alert("Tu navegador no soporta geolocalización.");
-  }*/
 }
 

@@ -1,6 +1,6 @@
 //DISPLAYING PRODUCTS
 getData("http://3.128.182.247/api/products").then(() => {
-  result.forEach((element) => {
+  result.forEach((element) => { 
     const producto = document.createElement("div");
 
     producto.classList.add(
@@ -17,7 +17,9 @@ getData("http://3.128.182.247/api/products").then(() => {
       '<a href="product.html?id=' +
       element.eanCode +
       '" class="text-dark" style="text-decoration: none">' +
-      '<img src="/img/imagen-no-disponible.jpg" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
+      '<img src="http://3.128.182.247:5000/static/uploads/' +
+      element.picture +
+      '" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
       "</div>" +
       '<div class="col-md-8" style="margin-left: 12px">' +
       '<div class="card-body d-flex flex-column h-100 justify-content-between">' +
@@ -36,7 +38,9 @@ getData("http://3.128.182.247/api/products").then(() => {
       "</div>" +
       '<div class="row">' +
       '<div class="col-6">' +
-      '<a href="product.html?id=' + element.eanCode + '" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
+      '<a href="product.html?id=' +
+      element.eanCode +
+      '" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
       '<p style="font-size: 25px"> $ ' +
       element.price +
       " COP </p>" +
@@ -64,7 +68,7 @@ function getData(url) {
 document.getElementById("search").addEventListener("click", function (event) {
   var searchProduct = document.getElementById("searchProduct").value; //SEARCH
   event.preventDefault();
-  //FILTER BY BRAND OR NAME
+  //IF SEARCHBAR EMPTY
   if (searchProduct == "") {
     //DISPLAYING PRODUCTS
     document.getElementById("catalogo").innerHTML = "";
@@ -85,7 +89,9 @@ document.getElementById("search").addEventListener("click", function (event) {
           '<a href="product.html?id=' +
           element.eanCode +
           '" class="text-dark" style="text-decoration: none">' +
-          '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
+          '<img src="http://3.128.182.247:5000/static/uploads/' +
+          element.picture +
+          '" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
           "</div>" +
           '<div class="col-md-8" style="margin-left: 12px">' +
           '<div class="card-body d-flex flex-column h-100 justify-content-between">' +
@@ -104,7 +110,9 @@ document.getElementById("search").addEventListener("click", function (event) {
           "</div>" +
           '<div class="row">' +
           '<div class="col-6">' +
-          '<a href="product.html?id=' + element.eanCode + '" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
+          '<a href="product.html?id=' +
+          element.eanCode +
+          '" style="text-decoration: none; color: #e55e01; font-weight: bold">' +
           '<p style="font-size: 25px"> $ ' +
           element.price +
           " COP </p>" +
@@ -119,6 +127,7 @@ document.getElementById("search").addEventListener("click", function (event) {
       });
     });
   } else {
+    //FILTERING BY NAME OR BRAND
     getData("http://3.128.182.247/api/products/byString/" + searchProduct).then(
       () => {
         document.getElementById("catalogo").innerHTML = "";
@@ -138,7 +147,9 @@ document.getElementById("search").addEventListener("click", function (event) {
             '<a href="product.html?id=' +
             element.eanCode +
             '" class="text-dark" style="text-decoration: none">' +
-            '<img src="https://via.placeholder.com/300" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
+            '<img src="http://3.128.182.247:5000/static/uploads/' +
+            element.picture +
+            '" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
             "</div>" +
             '<div class="col-md-8" style="margin-left: 12px">' +
             '<div class="card-body d-flex flex-column h-100 justify-content-between">' +

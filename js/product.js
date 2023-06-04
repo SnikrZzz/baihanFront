@@ -12,6 +12,7 @@ fetch(`http://3.128.182.247/api/products/byId/${id}`)
     document.getElementById("marca").textContent = "Marca: " + product.brand;
     document.getElementById("precio").textContent = "$ " + product.price;
     document.getElementById("descripcion").textContent = product.description;
+    document.getElementById("picture").src = "http://3.128.182.247:5000/static/uploads/" + product.picture
   });
 
 function cargarcomentarios() {
