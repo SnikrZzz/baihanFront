@@ -85,7 +85,9 @@ getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
       '<a href="product.html?id=' +
       element.eanCode +
       '" class="text-dark" style="text-decoration: none">' +
-      '<img src="http://3.128.182.247:5000/static/uploads/'+ element.picture +'" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
+      '<img src="http://3.128.182.247:5000/static/uploads/' +
+      element.picture +
+      '" class="card-img rounded-0" style="margin-left: -12px; height: 180px; width: 180px" alt="Product Image">' +
       "</div>" +
       '<div class="col-md-8" style="margin-left: 12px">' +
       '<div class="card-body d-flex flex-column h-100 justify-content-between">' +
@@ -111,11 +113,16 @@ getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
       "</div>" +
       "</a>" +
       '<div class="col-2">' +
-      '<button id="' + element.eanCode + '" class="btn btn-theme-primary">Editar</button>' + //BOTÓN EDITAR
-      '</div>' +
+      '<button id="' +
+      element.eanCode +
+      '" class="btn btn-theme-primary">Editar</button>' + //BOTÓN EDITAR
+      "</div>" +
       '<div class="col-2">' +
-      '<button id="' + element.eanCode + 'eliminar' + '" class="btn btn-theme-primary">Eliminar</button>' + //BOTÓN ELIMINAR
-      '</div>' +
+      '<button id="' +
+      element.eanCode +
+      "eliminar" +
+      '" class="btn btn-theme-primary">Eliminar</button>' + //BOTÓN ELIMINAR
+      "</div>" +
       "</div>" +
       "</div>" +
       "</div>" +
@@ -123,28 +130,43 @@ getData("http://3.128.182.247/api/products/byCustomerId/" + cedula).then(() => {
 
     document.getElementById("productos").appendChild(producto);
 
-    document.getElementById(element.eanCode).addEventListener("click", edit)
-    document.getElementById(element.eanCode + 'eliminar').addEventListener("click", () => {
-      console.log(code)
-      fetch("http://3.128.182.247/api/products/" + code, {
-        method: "DELETE",
-      })
-      .then(response => {
-        if (response.ok) {
-          console.log(code)
-          console.log('Product deleted successfully');
+    document.getElementById(element.eanCode).addEventListener("click", edit);
+    document
+      .getElementById(element.eanCode + "eliminar")
+      .addEventListener("click", () => {
+        var respuesta = confirm(
+          "¿Estás seguro de que deseas borrar el producto?"
+        );
+        if (respuesta) {
+          // Si el usuario hace clic en "Aceptar" en el cuadro de diálogo
+          // Aquí puedes realizar la lógica para borrar el producto
+          console.log(code);
+          alert("¡Borrado!")
+          fetch("http://3.128.182.247/api/products/" + code, {
+            method: "DELETE",
+          })
+            .then((response) => {
+              if (response.ok) {
+                console.log(code);
+                console.log("Product deleted successfully");
+              } else {
+                console.log("No sirve");
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+          console.log("Producto borrado.");
+          window.location.href = "./home.html";
         } else {
-          console.log('No sirve');
+          // Si el usuario hace clic en "Cancelar" en el cuadro de diálogo
+          alert("No se borró el producto :)")
         }
-      })
-      .catch(error => {
-        console.error('Error:', error);
       });
-    })
   });
 });
 
-function edit(event){
+function edit(event) {
   const idProducto = event.srcElement.id;
   window.location.href = "./updateProduct.html?id=" + idProducto;
 }
