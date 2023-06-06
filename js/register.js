@@ -174,6 +174,9 @@ checkbox.addEventListener("change", () => {
     if (isValid == 7) {
         submitButton.classList.remove("disabled")
         document.getElementById("valid").innerHTML = '<p style="color: green;">Registro correcto</p>';
+    } else {
+        document.getElementById("valid").innerHTML = '<p style="color: red;">Registro incorrecto</p>';
+
     }
 })
 
